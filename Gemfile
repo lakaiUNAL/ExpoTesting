@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #bootstrap scss
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use Puma as the app server
