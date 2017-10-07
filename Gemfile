@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #bootstrap scss
-gem 'bootstrap'
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use Puma as the app server
@@ -45,8 +45,8 @@ end
 group :test do 
   gem 'rails-controller-testing'
   gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
+  #gem 'guard'
+  #gem 'guard-minitest'
 end
 
 group :development do
