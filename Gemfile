@@ -5,7 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#bootstrap scss
+# Jquery
+gem 'jquery-rails'
+# Popper for bootstrap
+gem 'popper_js'
+# Bootstrap scss
 gem 'bootstrap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'

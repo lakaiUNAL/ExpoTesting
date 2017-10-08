@@ -1,10 +1,27 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-expand navbar-fixed-top navbar-inverse" role='navigation'>
 	<div class="container">
 		<%= link_to "sample app", root_path, id: "logo" %>
-		<ul class="nav navbar-nav navbar-right">
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Help", help_path %></li>
-			<li><%= link_to "Log in", '#' %></li>
+		<ul class="navbar-nav navbar-right">
+			<li class="nav-item"><%= link_to "Home", root_path, class: 'nav-link btn'%></li>
+			<li class="nav-item"><%= link_to "Help", help_path, class: 'nav-link btn'%></li>
+			
+			<% if logged_in? %>
+				<li class="nav-item"><%= link_to "Users", '#', class: 'nav-link btn'%></li>
+		          
+				<li class="dropdown nav-item">
+					<a href="#" class="dropdown-toggle nav-link btn" data-toggle="dropdown">
+						Account <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><%= link_to "Profile", current_user %></li>
+						<li class="dropdown-item disabled"><%= link_to "Settings", '#' %></li>
+						<li class="dropdown-divider"></li>
+						<li class="dropdown-item"><%= link_to "Log out", logout_path, method: :delete %></li>
+		            </ul>
+				</li>
+			<% else %>
+				<li class="nav-item"><%= link_to "Log in", login_path, class: 'nav-link btn'%></li>
+			<% end %>
 		</ul>
 	</div>
 </header>

@@ -29,14 +29,16 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
+
     follow_redirect!
     assert_template 'users/show'
 
+    assert is_logged_in?, "El usuario no esta logeado despues de registrarse"
     assert_not flash.empty?
 
     #assert_select ".success"
     assert_select ".alert-success"
-
+    
   end
 
 end
