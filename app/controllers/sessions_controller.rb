@@ -5,19 +5,18 @@ class SessionsController < ApplicationController
   def create
   	user = User.find_by(email: user_params[:email].downcase)
     if user && user.authenticate( user_params[:password] )
+      user_params[:remember_me] == '1' ? (remember user) : (forget user)
       log_in user
       redirect_to user
     else
-      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination'
       #flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render :new
     end
   end
 
   def destroy
-    session.delete(:user_id)
-    @current_user = nil
-
+    log_out if logged_in?
     redirect_to root_path
 
   end
@@ -25,7 +24,7 @@ class SessionsController < ApplicationController
   private
   
   def user_params
-    params.require(:session).permit(:email, :password)
+    params.require(:session).permit(:email, :password, :remember_me)
   end
 
 end
