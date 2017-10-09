@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-	attr_accessor :remember_token
+  #Logger 
+  def User.logger
+    my_logger ||= Logger.new("log/user_login.log")
+  end
+  
+  attr_accessor :remember_token
 
 	#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
