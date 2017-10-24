@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       User.logger.info "usuario #{user_params[:email].downcase} inició sesión #{Time.now}"
       redirect_to user
     else
-      #flash.now[:danger] = 'Invalid email/password combination'
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination'
+      #flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render :new
     end
   end
